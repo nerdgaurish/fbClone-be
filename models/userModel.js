@@ -38,9 +38,30 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  friendList: {
-    type: []
-  }
+  friendList: [
+    {
+      friendID: {
+        type: String,
+        unique: true
+      },
+      date: {
+        type: Date,
+        default: Date.now
+      },
+      firstName: {
+        type: String,
+        trim: true,
+        required: [true, 'First Name is required']
+      },
+      lastName: {
+        type: String,
+        required: [true, 'Last Name is required']
+      },
+      avatar: {
+        type: String
+      }
+    }
+  ]
 
 });
 
